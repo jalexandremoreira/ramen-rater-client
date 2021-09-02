@@ -11,7 +11,7 @@ export function Navbar() {
       flexDir="row"
       h="5em"
       justify="space-between"
-      p={{ l: '10em', r: '10em' }}
+      p={{ l: '10%', r: '10%' }}
     >
       <Text tag="h1" textSize="display1" textColor="primaryText">
         ramen!

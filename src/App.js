@@ -1,34 +1,30 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Navbar } from './components/Navbar';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Redirect,
+  Route,
+} from 'react-router-dom';
+import { Div } from 'atomize';
 
 import { Home } from './screens/Home';
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
-}
+import { Navbar } from './components/Navbar';
 
 export function App() {
   return (
     <>
       <Navbar />
-      <Router>
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/users">
-            <Users />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </Router>
+      <Div m={{ l: '10%', r: '10%' }}>
+        <Router>
+          <Switch>
+            {/* <Route path="/about" component={RandomRamen} /> */}
+
+            <Route path="/home" component={Home} />
+            <Redirect from="/" exact to="/home" />
+            <Redirect to="/not-found" />
+          </Switch>
+        </Router>
+      </Div>
     </>
   );
 }
