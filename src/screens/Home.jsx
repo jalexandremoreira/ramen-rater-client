@@ -2,7 +2,6 @@ import React from 'react';
 import { Button, Icon, Div, Text } from 'atomize';
 
 import { Card } from '../components/Card';
-import Logo from '../images/ramen-rater-logo1.png';
 
 const lorem =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vel purus vitae turpis consequat congue. Duis placerat iaculis mi et placerat. Nunc blandit pretium nibh ac condimentum. Quisque faucibus imperdiet libero quis suscipit.';
@@ -19,7 +18,16 @@ export function Home() {
         justify="space-between"
       >
         <Div d="flex" flexDir="column" w="45%">
-          <Div bgImg={Logo} bgSize="cover" w="280px" bgPos="center" h="120px" />
+          {/* <Div bgImg={Logo} bgSize="cover" w="280px" bgPos="center" h="120px" /> */}
+
+          <Text textColor="primaryText" textSize="heading">
+            ramen of the week
+          </Text>
+          <Div h="2px" w="40%" bg="melon" />
+
+          <Text textColor="primaryText" textSize="display3">
+            vegan tonkotsu ramen
+          </Text>
 
           <Text
             textSize="subheader"
@@ -40,10 +48,11 @@ export function Home() {
             }
             shadow="3"
             hoverShadow="4"
+            bg="salmonPink"
             m={{ r: '1rem' }}
             w="50%"
           >
-            explore
+            view details
           </Button>
         </Div>
         <Div
@@ -66,8 +75,24 @@ export function Home() {
         m={{ b: '4em', t: '4em' }}
       />
 
-      <Div m={{ b: '2em', t: '3em' }}>
-        <Card />
+      <Div d="flex" flexDir="row" justify="space-between" flexWrap="wrap">
+        <Div d="flex" align="center" justify="center" w="33%">
+          <Card />
+        </Div>
+        <Div d="flex" align="center" justify="center" w="33%">
+          <Card />
+        </Div>
+        <Div d="flex" align="center" justify="center" w="33%">
+          <Card />
+        </Div>
+        <Div d="flex" align="center" justify="center" w="33%">
+          <Card />
+        </Div>
+        <Div d="flex" align="center" justify="center" w="33%">
+          <Card />
+        </Div>
+
+        <Div flexGrow="1" />
       </Div>
     </Div>
   );

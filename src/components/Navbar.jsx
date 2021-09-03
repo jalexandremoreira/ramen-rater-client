@@ -24,7 +24,7 @@ export function Navbar() {
   const LinkText = ({ children, onClick, linkId }) => {
     return (
       <Div
-        id="navbar-link"
+        transition="300ms"
         h="100%"
         d="flex"
         align="center"
@@ -73,13 +73,30 @@ export function Navbar() {
           h="80%"
         />
 
-        <LinkText linkId={1} onClick={() => history.push('/')}>
-          home
-        </LinkText>
-        <LinkText linkId={2} onClick={() => history.push('/add-ramen')}>
-          add ramen
-        </LinkText>
-        {/* <LinkText linkId={3} >random ramen</LinkText> */}
+        <Div w="40%" h="100%" d="flex" flexDir="row" m={{ l: '2em' }}>
+          <LinkText linkId={1} onClick={() => history.push('/')}>
+            home
+          </LinkText>
+          <LinkText linkId={2} onClick={() => history.push('/add-ramen')}>
+            add ramen
+          </LinkText>
+        </Div>
+
+        <Div flexGrow="1" />
+
+        <Div
+          w="40%"
+          h="100%"
+          d="flex"
+          flexDir="row"
+          m={{ l: '2em' }}
+          justify="flex-end"
+        >
+          <LinkText onClick={() => history.push('#sign-out')}>
+            sign out
+          </LinkText>
+          <LinkText onClick={() => history.push('#contact')}>contact</LinkText>
+        </Div>
       </Div>
     </Div>
   );
