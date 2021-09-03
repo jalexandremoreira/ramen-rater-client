@@ -2,9 +2,11 @@ export const theme = {
   colors: {
     apricot: '#FFD3B6',
     magicMint: '#A8E6CF',
+    melonDark: '#F8A39E',
     melon: '#FFAAA5',
+    melonLight: '#FFB4B0',
     middleBlue: '#84E3C8',
-    lightCoral: '#FF7480',
+    FFB4B0: '#FF7480',
     // primaryText: '#355070',
     primaryText: '#304967',
     salmonPink: '#FF8B94',

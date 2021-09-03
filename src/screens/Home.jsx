@@ -3,7 +3,6 @@ import { Button, Icon, Div, Text } from 'atomize';
 
 import { Card } from '../components/Card';
 import Logo from '../images/ramen-rater-logo1.png';
-import RamenImage from '../images/regular-ramen.jpg';
 
 const lorem =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vel purus vitae turpis consequat congue. Duis placerat iaculis mi et placerat. Nunc blandit pretium nibh ac condimentum. Quisque faucibus imperdiet libero quis suscipit.';
@@ -49,7 +48,7 @@ export function Home() {
         </Div>
         <Div
           rounded="xl"
-          bgImg={RamenImage}
+          bgImg="https://images.unsplash.com/photo-1591814468924-caf88d1232e1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80"
           bgSize="cover"
           flex="1"
           w="45%"

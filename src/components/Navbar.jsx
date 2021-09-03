@@ -5,15 +5,46 @@ import { useHistory, useLocation } from 'react-router-dom';
 import Logo from '../images/ramen-rater-logo1.png';
 
 export function Navbar() {
+  const [selected, setSelected] = React.useState(1);
   const history = useHistory();
-  const location = useLocation();
+  const { pathname } = useLocation();
 
-  console.log('location', location);
-  const LinkText = ({ children, onClick }) => {
+  React.useEffect(() => {
+    switch (pathname) {
+      case '/home':
+        return setSelected(1);
+      case '/add-ramen':
+        return setSelected(2);
+
+      default:
+        return setSelected(1);
+    }
+  }, [pathname]);
+
+  const LinkText = ({ children, onClick, linkId }) => {
     return (
-      <Text cursor="pointer" textColor="primaryText" onClick={onClick}>
-        {children}
-      </Text>
+      <Div
+        id="navbar-link"
+        h="100%"
+        d="flex"
+        align="center"
+        justify="center"
+        p={{ l: '10px', r: '10px' }}
+        cursor="pointer"
+        hoverBg="melonLight"
+        hoverTextColor="secondaryText"
+        onClick={onClick}
+        textColor="primaryText"
+        flexDir="column"
+      >
+        <Text textSize="title">{children}</Text>
+        <Div
+          p={{ t: '4px' }}
+          h="2px"
+          w="40px"
+          bg={linkId === selected ? 'lightCoral' : 'transparent'}
+        />
+      </Div>
     );
   };
 
@@ -42,11 +73,13 @@ export function Navbar() {
           h="80%"
         />
 
-        <LinkText onClick={() => history.push('/')}>home</LinkText>
-        <LinkText onClick={() => history.push('/add-ramen')}>
+        <LinkText linkId={1} onClick={() => history.push('/')}>
+          home
+        </LinkText>
+        <LinkText linkId={2} onClick={() => history.push('/add-ramen')}>
           add ramen
         </LinkText>
-        <LinkText>random ramen</LinkText>
+        {/* <LinkText linkId={3} >random ramen</LinkText> */}
       </Div>
     </Div>
   );

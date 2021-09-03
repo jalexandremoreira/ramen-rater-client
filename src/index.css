@@ -3,6 +3,11 @@ body {
   background-color: #ffd3b6;
   font-family: 'Roboto Condensed', sans-serif;
   min-height: 100vh;
+
   /* padding-left: 10%;
   padding-right: 10%; */
+}
+
+#navbar-link {
+  transition: 200ms;
 }
