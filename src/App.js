@@ -15,7 +15,7 @@ export function App() {
   return (
     <Router>
       <Navbar />
-      <Div m={{ l: '10%', r: '10%' }}>
+      <Div m="auto" p={{ l: '10%', r: '10%' }} maxW="1920px">
         <Switch>
           <Route path="/add-ramen" component={AddRamen} />
 

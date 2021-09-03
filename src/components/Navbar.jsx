@@ -18,29 +18,36 @@ export function Navbar() {
   };
 
   return (
-    <Div
-      bg="melon"
-      d="flex"
-      align="center"
-      flex="1"
-      flexDir="row"
-      h="5em"
-      justify="space-between"
-      p={{ l: '10%', r: '10%' }}
-    >
+    <Div bg="melon" d="flex" align="center" flex="1" h="5em" justify="center">
       <Div
-        cursor="pointer"
-        onClick={() => history.push('/')}
-        bgImg={Logo}
-        bgSize="cover"
-        w="150px"
-        bgPos="center"
-        h="80%"
-      />
+        d="flex"
+        align="center"
+        flex="1"
+        flexDir="row"
+        h="100%"
+        w="100%"
+        justify="space-between"
+        p={{ l: '10%', r: '10%' }}
+        m="auto"
+        maxW="1920px"
+      >
+        <Div
+          id="logo"
+          cursor="pointer"
+          onClick={() => history.push('/')}
+          bgImg={Logo}
+          bgSize="cover"
+          w="150px"
+          bgPos="center"
+          h="80%"
+        />
 
-      <LinkText onClick={() => history.push('/')}>home</LinkText>
-      <LinkText onClick={() => history.push('/add-ramen')}>add ramen</LinkText>
-      <LinkText>random ramen</LinkText>
+        <LinkText onClick={() => history.push('/')}>home</LinkText>
+        <LinkText onClick={() => history.push('/add-ramen')}>
+          add ramen
+        </LinkText>
+        <LinkText>random ramen</LinkText>
+      </Div>
     </Div>
   );
 }
