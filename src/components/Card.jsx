@@ -1,9 +1,7 @@
 import React from 'react';
 import { Div, Text } from 'atomize';
 
-export function Card() {
-  const description =
-    'tasty vegan ramen made with the best ingredients and with a deep umami punch, and a hint of spiciness!';
+export function Card({ image, title, description }) {
   return (
     <Div
       align="center"
@@ -23,9 +21,11 @@ export function Card() {
     >
       <Div
         m={{ t: '-40px' }}
+        border="6px solid"
+        borderColor="lightCoral"
         shadow="3"
         rounded="circle"
-        bgImg="https://images.unsplash.com/photo-1591814468924-caf88d1232e1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80"
+        bgImg={image}
         bgSize="cover"
         flex="1"
         h="185px"
@@ -38,17 +38,20 @@ export function Card() {
         textColor="primaryText"
         textSize="heading"
         textWeight={700}
+        textAlign="center"
       >
-        vegan tonkotsu ramen
+        {title.toLowerCase()}
       </Text>
       <Div h="2px" w="85%" bg="teaGreen" />
 
       <Text
-        m={{ l: '25px', r: '25px' }}
+        m={{ t: '18px' }}
         textColor="secondaryText"
         textSize="paragraph"
+        textAlign="left"
+        w="80%"
       >
-        {description}
+        {description.toLowerCase()}
       </Text>
     </Div>
   );

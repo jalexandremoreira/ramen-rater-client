@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Icon, Div, Text } from 'atomize';
+import { useQuery, gql } from '@apollo/client';
 
 import { Card } from '../components/Card';
 
@@ -7,6 +8,20 @@ const lorem =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vel purus vitae turpis consequat congue. Duis placerat iaculis mi et placerat. Nunc blandit pretium nibh ac condimentum. Quisque faucibus imperdiet libero quis suscipit.';
 
 export function Home() {
+  const { data, loading, error } = useQuery(gql`
+    query {
+      bowls {
+        title
+        image
+        description
+      }
+    }
+  `);
+
+  if (!data) return <Text>No data...</Text>;
+  if (loading) return <Text>Loading...</Text>;
+  if (error) return <Text>{error}</Text>;
+
   return (
     <Div d="flex" flexDir="column">
       <Div
@@ -76,21 +91,15 @@ export function Home() {
       />
 
       <Div d="flex" flexDir="row" justify="space-between" flexWrap="wrap">
-        <Div d="flex" align="center" justify="center" w="33%">
-          <Card />
-        </Div>
-        <Div d="flex" align="center" justify="center" w="33%">
-          <Card />
-        </Div>
-        <Div d="flex" align="center" justify="center" w="33%">
-          <Card />
-        </Div>
-        <Div d="flex" align="center" justify="center" w="33%">
-          <Card />
-        </Div>
-        <Div d="flex" align="center" justify="center" w="33%">
-          <Card />
-        </Div>
+        {data?.bowls.map((item, index) => (
+          <Div d="flex" align="center" justify="center" w="33%" key={index}>
+            <Card
+              image={item.image}
+              title={item.title}
+              description={item.description}
+            />
+          </Div>
+        ))}
 
         <Div flexGrow="1" />
       </Div>
