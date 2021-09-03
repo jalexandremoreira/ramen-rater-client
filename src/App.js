@@ -9,8 +9,8 @@ import { Div } from 'atomize';
 
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
-import { AddRamen } from './screens/AddRamen';
-import { Home } from './screens/Home';
+import { AddRamen } from './pages/AddRamen';
+import { Home } from './pages/Home';
 import { Navbar } from './components/Navbar';
 
 const client = new ApolloClient({

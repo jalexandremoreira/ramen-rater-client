@@ -1,22 +1,24 @@
 import React from 'react';
 import { Button, Icon, Div, Text } from 'atomize';
-import { useQuery, gql } from '@apollo/client';
+import { gql, useQuery } from '@apollo/client';
 
 import { Card } from '../components/Card';
+
+const BOWLS_QUERY = gql`
+  {
+    bowls {
+      title
+      image
+      description
+    }
+  }
+`;
 
 const lorem =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vel purus vitae turpis consequat congue. Duis placerat iaculis mi et placerat. Nunc blandit pretium nibh ac condimentum. Quisque faucibus imperdiet libero quis suscipit.';
 
 export function Home() {
-  const { data, loading, error } = useQuery(gql`
-    query {
-      bowls {
-        title
-        image
-        description
-      }
-    }
-  `);
+  const { data, loading, error } = useQuery(BOWLS_QUERY);
 
   if (!data) return <Text>No data...</Text>;
   if (loading) return <Text>Loading...</Text>;
@@ -61,8 +63,8 @@ export function Home() {
                 m={{ l: '1rem' }}
               />
             }
-            shadow="3"
-            hoverShadow="4"
+            shadow="2"
+            hoverShadow="3"
             bg="salmonPink"
             m={{ r: '1rem' }}
             w="50%"
