@@ -1,10 +1,25 @@
 import React from 'react';
 import { Div, Text } from 'atomize';
+import { useHistory, useLocation } from 'react-router-dom';
+
+import Logo from '../images/ramen-rater-logo1.png';
 
 export function Navbar() {
+  const history = useHistory();
+  const location = useLocation();
+
+  console.log('location', location);
+  const LinkText = ({ children, onClick }) => {
+    return (
+      <Text cursor="pointer" textColor="primaryText" onClick={onClick}>
+        {children}
+      </Text>
+    );
+  };
+
   return (
     <Div
-      bg="salmonPink"
+      bg="melon"
       d="flex"
       align="center"
       flex="1"
@@ -13,12 +28,19 @@ export function Navbar() {
       justify="space-between"
       p={{ l: '10%', r: '10%' }}
     >
-      <Text tag="h1" textSize="display1" textColor="primaryText">
-        ramen!
-      </Text>
-      <Text textColor="primaryText">home</Text>
-      <Text textColor="primaryText">my ramen</Text>
-      <Text textColor="primaryText">random ramen</Text>
+      <Div
+        cursor="pointer"
+        onClick={() => history.push('/')}
+        bgImg={Logo}
+        bgSize="cover"
+        w="150px"
+        bgPos="center"
+        h="80%"
+      />
+
+      <LinkText onClick={() => history.push('/')}>home</LinkText>
+      <LinkText onClick={() => history.push('/add-ramen')}>add ramen</LinkText>
+      <LinkText>random ramen</LinkText>
     </Div>
   );
 }
