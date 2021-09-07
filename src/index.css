@@ -7,3 +7,20 @@ body {
   /* padding-left: 10%;
   padding-right: 10%; */
 }
+
+input {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+input:focus {
+  outline-width: 0;
+  border-color: transparent;
+  background-color: yellow;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
