@@ -77,7 +77,7 @@ export function Navbar() {
           <LinkText linkId={1} onClick={() => history.push('/')}>
             home
           </LinkText>
-          <LinkText linkId={2} onClick={() => history.push('/add-ramen')}>
+          <LinkText linkId={2} onClick={() => history.push('/ramen/add')}>
             add ramen
           </LinkText>
         </Div>

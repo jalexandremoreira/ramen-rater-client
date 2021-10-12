@@ -5,8 +5,6 @@ import { theme } from '../theme';
 export function FormInput(props) {
   const { colors } = theme;
 
-  console.log(props);
-
   return (
     <input
       {...props}
@@ -14,12 +12,11 @@ export function FormInput(props) {
         backgroundColor: colors.melon,
         border: 0,
         borderRadius: '5px',
-        color: colors.primaryText,
+        color: colors.primaryText2,
         fontSize: 'medium',
         margin: '5px 0',
         padding: '10px',
       }}
-      //   className="form-input"
     />
   );
 }

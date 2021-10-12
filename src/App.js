@@ -11,6 +11,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
 import { AddRamen } from './pages/AddRamen';
 import { Home } from './pages/Home';
+import { RamenDetails } from './pages/RamenDetails';
 import { Navbar } from './components/Navbar';
 
 const client = new ApolloClient({
@@ -25,7 +26,8 @@ export function App() {
         <Navbar />
         <Div m="auto" p={{ l: '10%', r: '10%' }} maxW="1920px">
           <Switch>
-            <Route path="/add-ramen" component={AddRamen} />
+            <Route path="/ramen/:slug" component={RamenDetails} />
+            <Route path="/ramen/add" component={AddRamen} />
             <Route path="/home" component={Home} />
             <Redirect from="/" exact to="/home" />
             <Redirect to="/not-found" />

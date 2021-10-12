@@ -1,7 +1,10 @@
 import React from 'react';
 import { Div, Text } from 'atomize';
+import { useHistory } from 'react-router-dom';
 
-export function Card({ image, title, description }) {
+export function Card({ image, title, description, slug }) {
+  const history = useHistory();
+
   return (
     <Div
       align="center"
@@ -14,7 +17,7 @@ export function Card({ image, title, description }) {
       shadow="3"
       hoverShadow="4"
       cursor="pointer"
-      onClick={() => console.log('click my card!')}
+      onClick={() => history.push(`/ramen/${slug}`)}
       flexDir="Column"
       transition="200ms"
       m={{ b: '2em', t: '2em' }}

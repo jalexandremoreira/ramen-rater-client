@@ -11,6 +11,7 @@ export const theme = {
     primaryText: '#304967',
     salmonPink: '#FF8B94',
     secondaryText: '#446791',
+    secondaryText2: '#6187B5',
     teaGreen: '#DCEDC1',
   },
 };

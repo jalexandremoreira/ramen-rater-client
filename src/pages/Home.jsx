@@ -10,6 +10,7 @@ const BOWLS_QUERY = gql`
       title
       image
       description
+      slug
     }
   }
 `;
@@ -93,12 +94,13 @@ export function Home() {
       />
 
       <Div d="flex" flexDir="row" justify="space-between" flexWrap="wrap">
-        {data?.bowls.map((item, index) => (
+        {data?.bowls.map(({ image, title, description, slug }, index) => (
           <Div d="flex" align="center" justify="center" w="33%" key={index}>
             <Card
-              image={item.image}
-              title={item.title}
-              description={item.description}
+              image={image}
+              title={title}
+              description={description}
+              slug={slug}
             />
           </Div>
         ))}

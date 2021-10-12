@@ -15,7 +15,6 @@ input {
 input:focus {
   outline-width: 0;
   border-color: transparent;
-  background-color: yellow;
 }
 
 input:focus,
